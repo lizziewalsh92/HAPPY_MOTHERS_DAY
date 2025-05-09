@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Mother’s Day, Jinlean!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chicle&family=Overlock+SC&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Overlock SC', sans-serif;
+      background-image: linear-gradient(to left top, #f699cf, #efaee0, #e9c1ec, #e6d3f2, #e9e3f4);
+      color: #333;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: "Chicle", sans-serif;
+      font-size: 6rem;
+      color: #d63384;
+      margin-top: 50px;
+    }
+
+    h2 {
+      font-family: 'Overlock SC', sans-serif;
+      font-size: 2.5rem;
+      padding: 0 20px;
+      margin: 10px auto;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(61, 50, 17, 0.2);
+
+    }
+
+    p {
+      font-size: 2rem;
+      font-weight: 900;
+      max-width: 600px;
+      margin: 20px auto;
+      color: rgb(18, 19, 19);
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(61, 50, 17, 0.2);
+
+    }
+
+    .photo {
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin-top: 30px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      transition: transform 0.3s;
+      border: #d63384 inset 3px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .photo.visible {
+  opacity: 1;
+  transform: translateY(0); /* or scale(1) if you used zoom */
+}
+
+    footer {
+      margin-top: 50px;
+      font-size: 1rem;
+      color: #d63384;
+    }
+
+    .credit {
+      font-size: 1.3rem;
+      color: #2d2a2a;
+    }
+    .photo:hover {
+      transform: scale(1.05);
+    }
+    @media (max-width: 1200px) {
+      h1 {
+        font-size: 5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+
+      .photo {
+        max-width: 90%;
+      }
+    }
+    @media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+    padding: 0 10px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    padding: 0 20px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+
+  .photo {
+    max-width: 90%;
+    margin-top: 20px;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+  </style>
+</head>
+<body>
+  <h1>Happy Mother’s Day, Jinlean!</h1>
+  <h2>I'm so happy that I get to spend this Mother's Day with you. You are the best mom a girl could have. I love you!</h2>
+  <img src="photos/oldphoto.jpeg" alt="MomandMe" class="photo" />
+  <p class = "credit">Pumped to hang out from day 1.</p>
+  <img src="photos/boat.jpeg" alt="Walsh-o-rama" class="photo" />
+  <p class = "credit">This photo proves, beyond a shadow of a doubt, that I am your spawn.</p>
+  <img src="photos/whitehouse.jpeg" alt="White House" class="photo" />
+  <p class = "credit">Acting innapropriately at the nation's capital .</p>
+  <img src="photos/dress2.jpeg" alt="LPZ matching dresses" class="photo" />
+  <p class = "credit">Accidental matching at LPZ. Note how our deltoids are anatomically identical.</p>
+  <img src="photos/buck.jpeg" alt="Mom" class="photo" />
+  <p class = "credit">Napping with your smaller/browner son.</p>
+  <img src="photos/eyes.jpeg" alt="LizardEyes" class="photo" />
+  <p class = "credit">Minutes after the margarita began to lower your inhibitions.</p>
+
+  <footer>Made with ❤️ by Girla</footer>
+  <br>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const photos = document.querySelectorAll('.photo');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        rootMargin: '0px 0px -20% 0px', // trigger a bit before fully in view
+        threshold: 0
+      });
+  
+      photos.forEach(photo => observer.observe(photo));
+    });
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+      scalar: 0.7, // smaller particles
+      ticks: 200,  // longer-lasting
+      colors: ['#ffb3c1', '#fce1e4', '#d63384', '#ffc107']
+    });
+  });
+</script>
+</body>
+</html>
